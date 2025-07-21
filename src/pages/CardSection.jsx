@@ -50,28 +50,20 @@ const cardData = [
 
 const CardSlider = () => {
 
-    const sliderRef = useRef(null);
+   const sliderRef = useRef(null);
     const intervalRef = useRef(null);
 
-    // Auto scroll function
     const startAutoScroll = () => {
+        if (!sliderRef.current) return;
         intervalRef.current = setInterval(() => {
-            if (sliderRef.current) {
-                sliderRef.current.scrollLeft += 1;
-                // Reset scroll to beginning for infinite effect
-                if (
-                    sliderRef.current.scrollLeft + sliderRef.current.offsetWidth >=
-                    sliderRef.current.scrollWidth
-                ) {
-                    sliderRef.current.scrollLeft = 0;
-                }
+            sliderRef.current.scrollLeft += 1;
+            if (sliderRef.current.scrollLeft >= sliderRef.current.scrollWidth / 2) {
+                sliderRef.current.scrollLeft = 0;
             }
-        }, 20); // Speed of scroll
+        }, 20);
     };
 
-    const stopAutoScroll = () => {
-        clearInterval(intervalRef.current);
-    };
+    const stopAutoScroll = () => clearInterval(intervalRef.current);
 
     useEffect(() => {
         startAutoScroll();
@@ -83,7 +75,7 @@ const CardSlider = () => {
             onMouseEnter={stopAutoScroll}
             onMouseLeave={startAutoScroll}
         >
-            {cardData.map((card, index) => (
+             {[...cardData, ...cardData].map((card, index) => (
                 <div className="game-card" key={index}>
                     <img src={card.image} alt={card.title} className="game-image" />
                     <div className="card-content">
