@@ -2,6 +2,7 @@ import React from 'react';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
 import XIcon from '@mui/icons-material/X';
+import CardSlider from './CardSection';
 
 const Banner = () => {
     return (
@@ -21,6 +22,11 @@ const Banner = () => {
                     <FacebookOutlinedIcon />
                     <XIcon />
                 </div>
+            </div>
+
+            <div className="banner__overlay">
+                <h1 className="banner__heading">Our Gaming World</h1>
+                <CardSlider />
             </div>
         </div>
     );

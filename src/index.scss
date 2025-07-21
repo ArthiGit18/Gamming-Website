@@ -14,6 +14,8 @@
         z-index: 0;
     }
 
+
+
     &__content {
         position: relative;
         z-index: 1;
@@ -49,11 +51,26 @@
                 transform: scale(1.03);
             }
         }
-        .icons{
+
+        .icons {
             display: flex;
             align-items: center;
             column-gap: 1rem;
             padding: 30px 0;
+        }
+    }
+
+    &__overlay {
+        position: relative;
+        z-index: 1;
+        top: 50%;
+
+        .banner__heading {
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            // margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
         }
     }
 }
@@ -131,6 +148,102 @@
 
             &:hover {
                 background: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+}
+
+.card-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 24px;
+    padding: 20px 40px;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .game-card {
+        flex: 0 0 auto;
+        width: 320px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+        padding: 16px;
+        scroll-snap-align: start;
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+
+        .game-image {
+            width: 100px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            // background-color: rgba(0, 255, 255, 0.1);
+            box-shadow:
+                0 0 2px #0ff,
+                0 0 2px #0ff,
+                0 0 4px #0ff,
+                0 0 8px #0ff;
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            flex: 1;
+
+            h3 {
+                font-size: 14px;
+                font-weight: 700;
+                margin-bottom: 4px;
+            }
+
+            p {
+                font-size: 12px;
+                color: #ccc;
+                margin-bottom: 10px;
+            }
+
+
+
+            .card-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .likes {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    color: #66aaff;
+                    font-size: 13px;
+                }
+
+                .explore-btn {
+                    padding: 5px 14px;
+                    color: white;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 8px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    backdrop-filter: blur(6px);
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                    }
+                }
             }
         }
     }
